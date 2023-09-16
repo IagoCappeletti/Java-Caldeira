@@ -9,9 +9,10 @@ public class ContaBancaria {
 
     private String name;
     private String cpf;
-    private int idConta = new Random().nextInt(9999);
+    private String conta = String.valueOf(new Random().nextInt(9999));
+    private int idConta = new Random().nextInt(10);
     private String senha;
-    private String banco;
+    private String banco = "Caldeira Bank";
     private String endereco;
     private double saldo = 0;
     private LocalDateTime horarioAtual;
@@ -26,6 +27,10 @@ public class ContaBancaria {
 
     public String getCpf() {
         return cpf;
+    }
+
+    public String getConta() {
+        return conta;
     }
 
     public int getIdConta() {
@@ -63,9 +68,10 @@ public class ContaBancaria {
     public ContaBancaria() {
     }
 
-    public ContaBancaria(String name, String cpf, int idConta, String senha, String banco, String endereco, double saldo, LocalDateTime horarioAtual) {
+    public ContaBancaria(String name, String cpf, String conta, int idConta, String senha, String banco, String endereco, double saldo, LocalDateTime horarioAtual) {
         this.name = name;
         this.cpf = cpf;
+        this.conta = conta;
         this.idConta = idConta;
         this.senha = senha;
         this.banco = banco;
@@ -93,7 +99,7 @@ public class ContaBancaria {
 
     }
 
-    public  void logar() {
+    public void logar() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Digite o seu cpf: ");
@@ -102,11 +108,12 @@ public class ContaBancaria {
         String senha = sc.nextLine();
         System.out.println();
 
-        validaLogin(cpf, senha);
-        validaRegistro(cpf, senha);
+        if (validaLogin(cpf, senha) && validaRegistro(cpf, senha)) {
+            logado();
+        }
     }
 
-    public  boolean validaLogin(String cpf, String senha) {
+    public boolean validaLogin(String cpf, String senha) {
         if (this.cpf.equals(cpf) && this.senha.equals(senha)) {
             return true;
         } else {
@@ -139,8 +146,50 @@ public class ContaBancaria {
         return senha.length() >= 6;
     }
 
+    public void logado() {
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("\nBanco: " + getBanco() + "\nconta: " + getConta() + " - " + getIdConta() + "\nSaldo: R$ " + getSaldo());
+        System.out.println("#1 - Fazer um depósito");
+        System.out.println("#2 - Fazer um saque");
+        System.out.println("#3 - Fazer uma transferência");
+        System.out.println("#4 - Fazer um pix");
+        System.out.println("#5 - Ver a hora atual");
+        System.out.println("#6 - Ver informações");
+        System.out.println("#7 - Alterar cadastro");
+        System.out.println("#8 - Excluir usuário");
+        System.out.println("#9 - Sair");
+        System.out.println("==========================");
+        System.out.print("Qual opção você deseja acessar? ");
+        int opcao = sc.nextInt();
+        System.out.println();
 
+        switch (opcao) {
+            case 1:
+                fazerDeposito();
+                break;
+            case 2:
+                fazerSaque();
+                break;
+            case 3:
+//                fazerTransferencia();
+                break;
+            case 4:
+//
+                break;
+            case 5:
+//                alterarCadastro();
+                break;
+            case 6:
+//                excluirUsuario();
+                break;
+            case 7:
+                System.out.println("Retornando a página de login!!");
+                return;
+            default:
+                System.out.println("Opção inválida!");
+        }
+    }
 
 
     public void fazerDeposito() {
@@ -158,15 +207,28 @@ public class ContaBancaria {
             System.out.printf("Saldo atual: R$ %.2f", saldo);
             System.out.println();
         }
-
+        logado();
     }
 
     public void fazerSaque() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Saldo atual: R$ " + String.format("%.1f", saldo));
-        System.out.println();
+        System.out.print("Digite o valor do saque: R$ ");
+        double valorSaque = sc.nextDouble();
 
+        if (valorSaque <= 0) {
+            System.out.println("Valor inválido!\n");
+        } else if (valorSaque > saldo) {
+            System.out.println("O valor selecionado é maior que o saldo disponível!\\n");
+        } else {
+            double novoSaldo = saldo - valorSaque;
+            saldo = novoSaldo;
+
+            System.out.println("Novo saldo disponível: R$ " + String.format("%.2f", saldo));
+            System.out.println();
+        }
+        logado();
     }
 
 }
