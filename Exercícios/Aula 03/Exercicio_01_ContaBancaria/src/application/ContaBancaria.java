@@ -152,8 +152,8 @@ public class ContaBancaria {
         System.out.println("\nBanco: " + getBanco() + "\nconta: " + getConta() + " - " + getIdConta() + "\nSaldo: R$ " + getSaldo());
         System.out.println("#1 - Fazer um depósito");
         System.out.println("#2 - Fazer um saque");
-        System.out.println("#3 - Fazer uma transferência");
-        System.out.println("#4 - Fazer um pix");
+        System.out.println("#3 - Fazer um pix");
+        System.out.println("#4 - Fazer uma transferência");
         System.out.println("#5 - Ver a hora atual");
         System.out.println("#6 - Ver informações");
         System.out.println("#7 - Alterar cadastro");
@@ -172,18 +172,24 @@ public class ContaBancaria {
                 fazerSaque();
                 break;
             case 3:
-//                fazerTransferencia();
+                tranferenciaPix();
                 break;
             case 4:
-//
+//                fazerTransferencia();
                 break;
             case 5:
-//                alterarCadastro();
+//                verHora();
                 break;
             case 6:
-//                excluirUsuario();
+//                verInformacao();
                 break;
             case 7:
+//                alterarCadastro();
+                break;
+            case 8:
+//                excluirUsuario();
+                break;
+            case 9:
                 System.out.println("Retornando a página de login!!");
                 return;
             default:
@@ -231,4 +237,29 @@ public class ContaBancaria {
         logado();
     }
 
+    public void tranferenciaPix() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Saldo atual: R$ " + String.format("%.1f", saldo));
+        System.out.print("Qual valor você deseja transferir? ");
+        double valorTransferenciaPix = sc.nextDouble();
+        System.out.print("Digete a chave pix: ");
+        sc.nextLine();
+        String destinoPix = sc.nextLine().toLowerCase();
+
+        if (valorTransferenciaPix <= 0) {
+            System.out.println("Valor inválido!\n");
+        } else if (valorTransferenciaPix > saldo) {
+            System.out.println("O valor selecionado é maior que o saldo disponível!\\n");
+        } else {
+            double novoSaldo = saldo - valorTransferenciaPix;
+            saldo = novoSaldo;
+
+            System.out.printf("Pix do valor %.2f realizado com sucesso! para: %s", valorTransferenciaPix, destinoPix);
+
+            System.out.println("\nNovo saldo disponível: R$ " + String.format("%.2f", saldo));
+            System.out.println();
+        }
+        logado();
+    }
 }
