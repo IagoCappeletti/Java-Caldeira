@@ -29,10 +29,7 @@ public class Program {
             }
         }
 
-        if (encontrado) {
-            System.out.println("O número " + numeroInserido + " foi encontrado");
-        } else {
-            System.out.println("O número " + numeroInserido + " não foi encontrado");
-        }
+        System.out.println("O número " + numeroInserido + (encontrado ? " foi encontrado" : " não foi encontrado"));
+
     }
 }
