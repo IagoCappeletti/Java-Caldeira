@@ -20,6 +20,5 @@ public class Program {
         for (FormaGeometrica forma : formas) {
             System.out.println("Área da forma: " + String.format("%.2f", forma.calcularArea()));
         }
-
         }
     }
