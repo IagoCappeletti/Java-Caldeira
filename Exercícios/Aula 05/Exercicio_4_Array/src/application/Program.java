@@ -64,3 +64,5 @@ public class Program {
         }
     }
 }
+
+//Site explicando RemoveIf:  http://www.mauda.com.br/?p=2288
