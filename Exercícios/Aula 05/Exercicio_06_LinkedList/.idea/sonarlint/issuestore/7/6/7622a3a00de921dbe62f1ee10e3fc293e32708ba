@@ -1,0 +1,17 @@
+
+@	java:S106D"+Replace this use of System.out by a logger.(µ¥èğ
+T
+java:S1117E"7Rename "nome" which hides the field declared at line 8.(Úê´æ8…ÖÆ¿­1
+@	java:S106F"+Replace this use of System.out by a logger.(²ÊÛˆ
+U
+java:S1117G"8Rename "local" which hides the field declared at line 9.(ş˜É8‡ÖÆ¿­1
+@	java:S106H"+Replace this use of System.out by a logger.(ùÒ“›
+Y
+java:S1117I"7Rename "cpf" which hides the field declared at line 10.(Éõ°Òÿÿÿÿÿ8ŠÖÆ¿­1
+@	java:S106J"+Replace this use of System.out by a logger.(¸ùûå
+\
+java:S1117K"?Rename "dataEntrada" which hides the field declared at line 11.(µáÅ8ŒÖÆ¿­1
+@	java:S106L"+Replace this use of System.out by a logger.(„õ€ß
+_
+java:S1117M"=Rename "dataSaida" which hides the field declared at line 12.(Ï¯Ò§ÿÿÿÿÿ8‘ÖÆ¿­1
+E	java:S106R"+Replace this use of System.out by a logger.(ş®¢Óøÿÿÿÿ
