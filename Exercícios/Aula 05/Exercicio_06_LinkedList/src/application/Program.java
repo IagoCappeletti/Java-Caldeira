@@ -7,7 +7,8 @@ public class Program {
 
         Scanner sc = new Scanner(System.in);
         Reserva reserva = new Reserva();
-        while (true) {
+        boolean sairDoLoop = false;
+        while (!sairDoLoop) {
             System.out.println("===== M E N U =====");
             System.out.println("#1 - Reservar uma passagem");
             System.out.println("#2 - Cancelar reserva");
@@ -27,10 +28,11 @@ public class Program {
                     reserva.exibir();
                     break;
                 case 4:
-                    reserva.sair();
+                    sairDoLoop = true;
                     break;
                 default:
                     System.out.println("Opção invalida! ");
+                    break;
             }
         }
     }

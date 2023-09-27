@@ -11,7 +11,6 @@ public class Reserva extends Program {
     private String dataEntrada;
     private String dataSaida;
     private LinkedList<Reserva> listaDeReservas = new LinkedList<>();
-
     Scanner sc = new Scanner(System.in);
 
     public Reserva() {
@@ -63,13 +62,6 @@ public class Reserva extends Program {
                 System.out.println(reservas);
             }
         }
-    }
-
-
-    public void sair() {
-        System.out.println("Finalizando o progrma.");
-        System.exit(0);
-        sc.close();
     }
 
     @Override
