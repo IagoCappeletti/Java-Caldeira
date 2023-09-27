@@ -25,46 +25,6 @@ public class Reserva extends Program {
         this.dataSaida = dataSaida;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getLocal() {
-        return local;
-    }
-
-    public void setLocal(String local) {
-        this.local = local;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getDataEntrada() {
-        return dataEntrada;
-    }
-
-    public void setDataEntrada(String dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
-
-    public String getDataSaida() {
-        return dataSaida;
-    }
-
-    public void setDataSaida(String dataSaida) {
-        this.dataSaida = dataSaida;
-    }
-
     public void reservarDePassagem() {
         System.out.print("Qual seu nome? ");
         String nome = sc.nextLine();
