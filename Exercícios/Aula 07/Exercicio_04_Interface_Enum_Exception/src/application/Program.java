@@ -12,13 +12,13 @@ public class Program {
 
         Calculadora calc = new Calculadora();
 
-        System.out.println("==== Operaçãos matemáticas ====");
-        System.out.println("Somar - Subtrair - Multiplicar - Dividir");
-        System.out.print("Digite a operação desejada: ");
-        String operacaoDigitada = sc.nextLine().toUpperCase();
-
         try {
-            Operacoes operacoes = Operacoes.valueOf(operacaoDigitada);
+            System.out.println("==== Operaçãos matemáticas ====");
+            for (Operacoes operacoes : Operacoes.values()) {
+                System.out.println(operacoes.name());
+            }
+            System.out.print("Digite a operação desejada: ");
+            Operacoes operacoes = Operacoes.valueOf(sc.nextLine().toUpperCase());
 
             System.out.print("Digite o primeiro número: ");
             int primeiroNumero = sc.nextInt();
