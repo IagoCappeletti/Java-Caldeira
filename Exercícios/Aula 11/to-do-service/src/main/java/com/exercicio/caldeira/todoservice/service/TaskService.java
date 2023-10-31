@@ -8,20 +8,21 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
-public class TaskService {
+public class TaskService extends FilterTaskService {
 
     private final List<Task> listaDeTarefas = new ArrayList<>();
     private final AtomicLong contadorDeId = new AtomicLong(1);
+
 
     public List<Task> listarTarefas() {
         return listaDeTarefas;
     }
 
     public Task obterTarefaPorId(long id) {
-        return listaDeTarefas.stream()
-                .filter(task -> task.getId() == id)
-                .findFirst()
-                .orElse(null);
+        return filtroPorId(listaDeTarefas, id);
+    }
+    public List<Task> filtroDescricao(String descricao) {
+        return filtroPorDescricao(listaDeTarefas, descricao);
     }
 
     public Task adicionarTarefa(Task novaTask) {
