@@ -9,7 +9,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.List;
 
 @RestController
-@RequestMapping("/task")
+@RequestMapping("/tasks")
 public class TaskController {
 
     private final TaskService taskService;
@@ -22,6 +22,15 @@ public class TaskController {
     public ResponseEntity<List<Task>> listar() {
         List<Task> listaDeTarefas = taskService.listarTarefas();
         return ResponseEntity.ok(listaDeTarefas);
+    }
+
+    @GetMapping("/descricao/{descricao}")
+    public ResponseEntity<List<Task>> exibeFiltro(@PathVariable String descricao) {
+        List<Task> task = taskService.filtroDescricao(descricao);
+        if (task!= null) {
+            return ResponseEntity.ok(task);
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/{id}")
