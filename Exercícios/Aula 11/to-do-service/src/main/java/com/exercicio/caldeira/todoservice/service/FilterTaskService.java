@@ -1,10 +1,12 @@
 package com.exercicio.caldeira.todoservice.service;
 
 import com.exercicio.caldeira.todoservice.model.task.Task;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class FilterTaskService {
 
     public static List<Task> filtroPorDescricao(List<Task> listaDeTarefas, String descricao) {
