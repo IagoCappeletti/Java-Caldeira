@@ -6,7 +6,7 @@ SET search_path TO vendas;
 
 //Para criar a tabela de Produtos com os atributos
 CREATE TABLE Produtos(
-	ID_Produto INT PRIMARY KEY,
+	ID_Produto SERIAL PRIMARY KEY,
 	Nome VARCHAR(255),
 	Preco DECIMAL(6,2),
 	Categoria VARCHAR(100)
@@ -15,7 +15,7 @@ CREATE TABLE Produtos(
 
 //Para criar a tabela de Clientes com os atributos
 CREATE TABLE Clientes (
-    ID_Cliente INT PRIMARY KEY,
+    ID_Cliente SERIAL PRIMARY KEY,
     Nome VARCHAR(255),
     Email VARCHAR(255),
     Telefone VARCHAR(14)
@@ -23,7 +23,7 @@ CREATE TABLE Clientes (
 
 //Para criar a tabela de Pedidos com os atributos e chave estrangeira referenciando a tabela "Clientes"
 CREATE TABLE Pedidos (
-    ID_Pedido INT PRIMARY KEY,
+    ID_Pedido SERIAL PRIMARY KEY,
     ID_Cliente INT,
     Data_Pedido DATE,
     Valor_Total NUMERIC(6,2),
@@ -32,7 +32,7 @@ CREATE TABLE Pedidos (
 
 //
 CREATE TABLE DetalhesDoPedido(
-    ID_Detalhe INT PRIMARY KEY,
+    ID_Detalhe SERIAL PRIMARY KEY,
 	Quantidade INT,
 	ID_Pedido INT,
 	ID_Produto INT,
